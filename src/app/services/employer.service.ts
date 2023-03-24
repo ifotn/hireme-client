@@ -15,4 +15,8 @@ export class EmployerService {
   getEmployers() {
     return this.http.get(`${this.serverUrl}/api/employers`)
   }
+
+  addEmployer(employer: any) {
+    return this.http.post(`${this.serverUrl}/api/employers`, employer)
+  }
 }

@@ -1,9 +1,37 @@
 <h1>Hire Me!</h1>
+<div class="row">
 <section class="col-lg-6">
     <h2>Employers</h2>
-    <ul>
-        <li *ngFor="let employer of employers">
-            {{employer.name}}
+    <ul class="list-group">
+        <li *ngFor="let employer of employers" class="list-group-item">
+            <h4>{{employer.name}}</h4>
+            <h5>{{employer.city}}</h5>
+            <h5>{{employer.employees}}</h5>
         </li>
     </ul>
 </section>
+<section class="col-lg-6">
+    <h2>Add / Edit Employer</h2>
+    <fieldset>
+        <label for="name">Name: *</label>
+        <input type="text" name="name" required [(ngModel)]="name">
+    </fieldset>
+    <fieldset>
+        <label for="city">City: *</label>
+        <input type="text" name="city" required [(ngModel)]="city">
+    </fieldset>
+    <fieldset>
+        <label for="contactEmail">Email:</label>
+        <input type="email" name="contactEmail" [(ngModel)]="contactEmail">
+    </fieldset>
+    <fieldset>
+        <label for="comments">Comments:</label>
+        <textarea name="comments" [(ngModel)]="comments"></textarea>
+    </fieldset>
+    <fieldset>
+        <label for="employees"># of Employees:</label>
+        <input type="number" name="employees" [(ngModel)]="employees">
+    </fieldset>
+    <button class="btn btn-secondary offset-2" (click)="addEmployer()">Save</button>
+</section>
+</div>
