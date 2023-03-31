@@ -35,8 +35,9 @@
         <label for="employees"># of Employees:</label>
         <input type="number" name="employees" [(ngModel)]="employees">
     </fieldset>
-    <button class="btn btn-secondary offset-2 m-3" (click)="addEmployer()">Save</button>
-    <button class="btn btn-secondary m-3" *ngIf="_id">Delete</button>
+    <button class="btn btn-secondary offset-2 m-3" *ngIf="!_id" (click)="addEmployer()">Save</button>
+    <button class="btn btn-secondary offset-2 m-3" *ngIf="_id" (click)="updateEmployer(_id)">Save</button>
+    <button class="btn btn-secondary m-3" *ngIf="_id" (click)="deleteEmployer(_id)">Delete</button>
     <button class="btn btn-secondary m-3" (click)="reset()">Reset</button>
 </section>
 </div>

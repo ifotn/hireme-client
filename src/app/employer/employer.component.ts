@@ -53,6 +53,32 @@ export class EmployerComponent implements OnInit {
       this._id = _id;
   }
 
+  deleteEmployer(_id: string) {
+    if (confirm('Are you sure you want to delete this employer?')) {
+      this.service.deleteEmployer(_id).subscribe(response => {
+        this.getEmployers();
+        this.reset();
+      });
+    }      
+  }
+
+  updateEmployer(_id: string): void {
+    // populate new employer 
+    let employer = {
+      name: this.name,
+      city: this.city,
+      contactEmail: this.contactEmail,
+      comments: this.comments,
+      employees: this.employees
+    };
+
+    // send it to the service which sends it to the api using PUT
+    this.service.updateEmployer(_id, employer).subscribe(response => {
+      this.getEmployers();
+      this.reset();
+    });
+  }
+
   reset(): void {
     this.name = undefined;
     this.city = undefined;

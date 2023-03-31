@@ -24,4 +24,8 @@ export class EmployerService {
     return this.http.delete(`${this.serverUrl}/api/employers/${_id}`)
   }
 
+  updateEmployer(_id: string, employer: any) {
+    return this.http.put(`${this.serverUrl}/api/employers/${_id}`, employer)
+  }
+
 }
