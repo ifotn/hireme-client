@@ -4,7 +4,10 @@
     <h2>Employers</h2>
     <ul class="list-group">
         <li *ngFor="let employer of employers" class="list-group-item">
-            <h4>{{employer.name}}</h4>
+            <h4 class="employerNameLink" 
+            (click)="selectEmployer(employer.name, employer.city, employer.contactEmail, employer.comments, employer.employees, employer._id)">
+                {{employer.name}}
+            </h4>
             <h5>{{employer.city}}</h5>
             <h5>{{employer.employees}}</h5>
         </li>
@@ -32,6 +35,8 @@
         <label for="employees"># of Employees:</label>
         <input type="number" name="employees" [(ngModel)]="employees">
     </fieldset>
-    <button class="btn btn-secondary offset-2" (click)="addEmployer()">Save</button>
+    <button class="btn btn-secondary offset-2 m-3" (click)="addEmployer()">Save</button>
+    <button class="btn btn-secondary m-3" *ngIf="_id">Delete</button>
+    <button class="btn btn-secondary m-3" (click)="reset()">Reset</button>
 </section>
 </div>

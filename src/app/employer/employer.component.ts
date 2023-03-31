@@ -12,6 +12,7 @@ export class EmployerComponent implements OnInit {
   constructor(private service: EmployerService) {}
 
   employers: any;
+  _id: string | undefined;
   name: string | undefined;
   city: string | undefined;
   contactEmail: string | undefined;
@@ -42,13 +43,25 @@ export class EmployerComponent implements OnInit {
     });
   }
 
+  selectEmployer(name: string, city: string, contactEmail: string, 
+    comments: string, employees: number, _id: string): void {
+      this.name = name;
+      this.city = city;
+      this.contactEmail = contactEmail;
+      this.comments = comments;
+      this.employees = employees;
+      this._id = _id;
+  }
+
   reset(): void {
     this.name = undefined;
     this.city = undefined;
     this.contactEmail = undefined;
     this.comments = undefined;
     this.employees = undefined;
+    this._id = undefined;
   }
+
   ngOnInit(): void {
     this.getEmployers();
   }

@@ -19,4 +19,9 @@ export class EmployerService {
   addEmployer(employer: any) {
     return this.http.post(`${this.serverUrl}/api/employers`, employer)
   }
+
+  deleteEmployer(_id: string) {
+    return this.http.delete(`${this.serverUrl}/api/employers/${_id}`)
+  }
+
 }

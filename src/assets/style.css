@@ -47,3 +47,12 @@ thead {
   color: #FFFFFF;
   background-color: #063672;
 }
+
+.employerNameLink {
+  cursor: pointer;
+  color: #DB0007;
+}
+
+.employerNameLink:hover {
+  text-decoration: underline;
+}
